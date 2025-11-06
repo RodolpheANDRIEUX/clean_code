@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnement virtuel
+venv/
+.venv/
+env/
+.env/
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+
+# Tests et cache
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# IDE (PyCharm / JetBrains)
+.idea/
+
+# Logs, données temporaires
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Secrets
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
