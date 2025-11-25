@@ -10,18 +10,6 @@
 
 ## 💻 Code style
 - **PEP8 + Typage**.
-- Nommage :
-
-  | Élément        | Convention / Exemple                | À éviter / Pourquoi |
-  |----------------|-------------------------------------|---------------------|
-  | **Classe**     | `StationRepository`, `Prevision`    | `DataManager`, `Helper` — trop vague |
-  | **Variable**   | `temperature_actuelle`              | `tmp`, `x`, `data2` — pas de sens |
-  | **Constante**  | `MAX_HUMIDITE = 100`                | `maxHumi` — pas lisible ni standard |
-  | **Fonction**   | `calculer_prevision()`, `charger_donnees()` | `doStuff()`, `runAll()` — trop flou |
-  | **Booléen**    | `is_active`, `has_error`            | `flag`, `ok`, `test` — ambigu |
-  | **Module/Fichier** | `station_repository.py`, `prevision_service.py` | `utils.py`, `misc.py` — poubelle à tout faire |
-  | **Variable globale** | constantes (`APP_MODE = "DEV"`) | `global_data` — couplage et chaos |
-
 
 ## 🪶 Git
 Branches :  
