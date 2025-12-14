@@ -19,6 +19,7 @@ dist/
 .coverage
 htmlcov/
 .cache/
+dev/
 
 # IDE (PyCharm / JetBrains)
 .idea/
