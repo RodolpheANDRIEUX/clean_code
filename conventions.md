@@ -45,7 +45,7 @@ Ex : `feat(#12): add station fetcher`
 
 - MVP : data tests only (schémas, bornes, nulls).
 
-- Pas de tests unitaires, mais zéro donnée sale.
+- Pas de tests unitaires (Bon bah enfait si...).
 
 ## 🪵 Logs (wood log hehe do you get it)
 
