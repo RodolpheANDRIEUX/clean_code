@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from domain.model.station import Station
+from src.domain.model.station import Station
 
 
 class StationCatalogPort(Protocol):

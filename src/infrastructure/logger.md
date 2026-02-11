@@ -2,17 +2,17 @@
 
 dans main
 
-```python
-from infrastructure.logging_setup import setup_logging
-
-def main():
-setup_logging(
-module_levels={
-"app.http": 20,   # logging.INFO
-"app.etl": 10,    # logging.DEBUG
-}
-)
-```
+ ```python
+ from src.infrastructure import setup_logging
+ 
+ def main():
+ setup_logging(
+ module_levels={
+ "app.http": 20,   # logging.INFO
+ "app.etl": 10,    # logging.DEBUG
+ }
+ )
+ ```
 
 dans les fichier
 ```python

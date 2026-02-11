@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typer
 
-from infrastructure.wiring import build_get_selected_stations
+from src.infrastructure.wiring import build_get_selected_stations
 
 app = typer.Typer(no_args_is_help=True)
 

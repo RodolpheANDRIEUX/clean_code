@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from domain.model.station import Station
-from domain.rules.station_selection import StationSelectionPolicy, StationSelector
+from src.domain.model.station import Station
+from src.domain.rules.station_selection import StationSelectionPolicy, StationSelector
 
-from application.ports.stations import StationCatalogPort
+from src.application.ports.stations import StationCatalogPort
 
 
 class GetSelectedStations:

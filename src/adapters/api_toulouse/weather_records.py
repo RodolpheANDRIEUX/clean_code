@@ -5,8 +5,8 @@ from typing import Any, Optional
 
 import requests
 
-from domain.model.station import Station
-from domain.model.time import TimeWindow
+from src.domain.model.station import Station
+from src.domain.model.time import TimeWindow
 
 
 @dataclass(frozen=True, slots=True)

@@ -5,8 +5,8 @@ from typing import Any, Optional
 
 import requests
 
-from domain.model.identifiers import DatasetId, StationId
-from domain.model.station import Station, StationType
+from src.domain.model.identifiers import DatasetId, StationId
+from src.domain.model.station import Station, StationType
 
 
 @dataclass(frozen=True, slots=True)

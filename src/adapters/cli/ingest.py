@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import typer
 
-from domain.model.time import TimeWindow, UtcTimestamp
-from infrastructure.wiring import build_get_selected_stations, build_ingest_to_ods, build_clock
+from src.domain.model.time import TimeWindow, UtcTimestamp
+from src.infrastructure.wiring import build_get_selected_stations, build_ingest_to_ods, build_clock
 
 app = typer.Typer(no_args_is_help=True)
 

@@ -1,9 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol, Iterable
-from application.ports.weather import RawRecord
-from domain.model.station import Station
-from domain.model.time import TimeWindow, UtcTimestamp
+from src.application.ports.weather import RawRecord
+from src.domain.model.station import Station
+from src.domain.model.time import TimeWindow, UtcTimestamp
 
 
 @dataclass(frozen=True, slots=True)

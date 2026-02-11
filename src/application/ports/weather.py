@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Any, Mapping, TypeAlias, Protocol
-from domain.model.station import Station
-from domain.model.time import TimeWindow
+from src.domain.model.station import Station
+from src.domain.model.time import TimeWindow
 
 RawRecord: TypeAlias = Mapping[str, Any]
 

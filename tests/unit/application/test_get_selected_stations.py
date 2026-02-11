@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from application.use_cases.get_selected_stations import GetSelectedStations
-from domain.model.identifiers import StationId, DatasetId
-from domain.model.station import Station, StationType
-from domain.rules.station_selection import StationSelectionPolicy
+from src.application.use_cases import GetSelectedStations
+from src.domain.model import StationId, DatasetId
+from src.domain.model import Station, StationType
+from src.domain.rules.station_selection import StationSelectionPolicy
 
 
 @dataclass

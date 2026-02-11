@@ -3,9 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import timedelta
 
-from domain.model.observation import Observation
-from domain.model.quality import QualityFlag, QualityStatus
-from domain.model.time import UtcTimestamp
+from src.domain.model.observation import Observation
+from src.domain.model.quality import QualityFlag, QualityStatus
+from src.domain.model.time import UtcTimestamp
 
 
 @dataclass(frozen=True, slots=True)

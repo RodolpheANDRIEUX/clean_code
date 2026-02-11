@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import FrozenSet, Iterable, Optional
 
-from domain.model.station import Station, StationId, StationType
+from src.domain.model.station import Station, StationId, StationType
 
 
 @dataclass(frozen=True, slots=True)

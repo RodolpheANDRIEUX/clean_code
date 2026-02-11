@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import typer
 
-from adapters.cli.stations import app as stations_app
-from adapters.cli.ingest import app as ingest_app
-from adapters.cli.ods import app as ods_app
+from src.adapters.cli.stations import app as stations_app
+from src.adapters.cli.ingest import app as ingest_app
+from src.adapters.cli.ods import app as ods_app
 
 app = typer.Typer(no_args_is_help=True)
 app.add_typer(stations_app, name="stations")

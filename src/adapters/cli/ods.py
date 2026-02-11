@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import typer
-from infrastructure.db import SqliteConfig, connect_sqlite
+from src.infrastructure.db import SqliteConfig, connect_sqlite
 
 app = typer.Typer(no_args_is_help=True)
 
