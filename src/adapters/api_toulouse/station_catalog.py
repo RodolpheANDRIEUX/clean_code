@@ -13,7 +13,7 @@ from src.domain.model.station import Station, StationType
 class ToulouseApiConfig:
     base_url: str = "https://data.toulouse-metropole.fr"
     timeout_s: float = 10.0
-    max_datasets: int = 50  # sécurité (à baisser en MVP si besoin)
+    max_datasets: int = 50
 
 
 class ToulouseStationCatalogAdapter:
