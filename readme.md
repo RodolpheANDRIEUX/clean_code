@@ -1,14 +1,17 @@
 # Weather ETL – V1
 
-Petit projet pour apprendre l’architecture hexagonale en Python.
+Petit projet pour apprendre l'architecture hexagonale en Python.
 
-L’application permet de :
+L'application permet de :
 - sélectionner des stations météo
-- récupérer leurs données via l’API Toulouse Métropole
+- récupérer leurs données via l'API Toulouse Métropole
 - stocker les données brutes dans SQLite (ODS)
 - tracer chaque ingestion par batch
 
+> 📐 [Design Patterns utilisés dans ce projet](design_patterns.md)
+
 ---
+
 
 # Commandes disponibles
 
@@ -50,7 +53,7 @@ window=[2025-12-01T07:00:00+00:00 → 2025-12-01T10:00:00+00:00)
 
 ---
 
-## 3) Inspecter l’ODS
+## 3) Inspecter l'ODS
 
 Statistiques :
 
@@ -66,9 +69,49 @@ python -m src.adapters.cli.main ods sample --n 10
 
 ---
 
-# Ce que fait l’application
+## 4) Consulter les données
 
-- Elle appelle l’API météo.
+Stations en base :
+
+```bash
+python -m src.adapters.cli.main data stations
+```
+
+Dernière mesure de chaque station :
+
+```bash
+python -m src.adapters.cli.main data latest
+```
+
+Mesures d'une station (les 20 dernières par défaut) :
+
+```bash
+python -m src.adapters.cli.main data show 3
+python -m src.adapters.cli.main data show 3 --n 50
+```
+
+---
+
+## 5) Data Profiling
+
+Analyse le contenu de l'ODS et génère un rapport (console + HTML).
+
+```bash
+python scripts/run_data_profile.py
+```
+
+Options :
+- `--text-only` → terminal uniquement, pas de HTML
+- `--output path/to/report.html` → chemin du rapport (défaut : `scripts/data_profile.html`)
+- `--sample 5000` → sous-ensemble de lignes pour aller plus vite
+
+Le rapport couvre : nulls, bornes métier, min/max/moyenne/médiane/std, gaps temporels par station, doublons.
+
+---
+
+# Ce que fait l'application
+
+- Elle appelle l'API météo.
 - Elle filtre les données selon la fenêtre temporelle.
 - Elle stocke le JSON brut sans transformation.
 - Elle évite les doublons.
@@ -76,9 +119,9 @@ python -m src.adapters.cli.main ods sample --n 10
 
 ---
 
-# Ce que l’application ne fait pas encore
+# Ce que l'application ne fait pas encore
 
 - Pas de données nettoyées (DWH)
 - Pas de visualisation
 - Pas de prédiction
-- Pas d’API REST
+- Pas d'API REST

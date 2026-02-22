@@ -13,6 +13,7 @@ from src.domain.model.time import UtcTimestamp
 from src.adapters.api_toulouse.station_catalog import ToulouseApiConfig, ToulouseStationCatalogAdapter
 from src.adapters.api_toulouse.weather_records import ToulouseRecordsConfig, ToulouseWeatherRecordsAdapter
 from src.adapters.persistence.sqlite_ods_repo import SqliteOdsRepository
+from src.adapters.weather_decorator import LoggingWeatherRecordsDecorator
 from src.infrastructure.db import SqliteConfig, connect_sqlite
 
 
@@ -55,6 +56,9 @@ def build_get_selected_stations(
 def build_ingest_to_ods(*, sqlite_path: str = "data/app.sqlite") -> IngestToOds:
     con = connect_sqlite(SqliteConfig(path=sqlite_path))
     ods = SqliteOdsRepository(con)
-    weather = ToulouseWeatherRecordsAdapter(cfg=ToulouseRecordsConfig())
+    # GoF Decorator : on enveloppe le ConcreteComponent sans toucher à IngestToOds
+    weather = LoggingWeatherRecordsDecorator(
+        ToulouseWeatherRecordsAdapter(cfg=ToulouseRecordsConfig())
+    )
     clock = SystemClock()
     return IngestToOds(weather=weather, ods=ods, clock=clock)

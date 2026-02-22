@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Data Profile — ods_weather_raw</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --border: #2e3250;
+    --text: #e2e8f0; --muted: #8892b0; --accent: #64ffda;
+    --ok: #4ade80; --warn: #facc15; --danger: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', 'Segoe UI', sans-serif; padding: 2rem; }
+  h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: .25rem; }
+  .subtitle { color: var(--muted); font-size: .9rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: .4rem; margin: 2rem 0 1rem; }
+  h3 { font-size: .95rem; color: var(--muted); margin: 1rem 0 .5rem; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.3rem; }
+  .kpi .label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .kpi .value { font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-top: .25rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th { background: var(--surface); color: var(--muted); padding: .6rem .8rem; text-align: left; border-bottom: 2px solid var(--border); }
+  td { padding: .55rem .8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: var(--surface); }
+  .ok { color: var(--ok); }
+  .warn { color: var(--warn); }
+  .danger { color: var(--danger); }
+  small { font-size: .75rem; color: var(--muted); }
+  pre { background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+         padding: 1rem; font-size: .78rem; overflow-x: auto; color: var(--muted); white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>📊 Data Profile</h1>
+<p class="subtitle">Table : <code>ods_weather_raw</code> &nbsp;·&nbsp; Généré le 2026-02-22 21:25 UTC</p>
+
+<h2>Vue d'ensemble</h2>
+<div class="kpi-grid">
+  <div class="kpi"><div class="label">Total rows</div><div class="value">55,012</div></div>
+  <div class="kpi"><div class="label">Stations</div><div class="value">11</div></div>
+  <div class="kpi"><div class="label">Batches</div><div class="value">3</div></div>
+  <div class="kpi"><div class="label">Doublons (station+ts)</div><div class="value danger">5,006</div></div>
+  <div class="kpi"><div class="label">Période début</div><div class="value" style="font-size:.9rem">2019-06-06T13:30:00+00:00</div></div>
+  <div class="kpi"><div class="label">Période fin</div><div class="value" style="font-size:.9rem">2025-12-01T09:45:00+00:00</div></div>
+</div>
+
+<h2>Couverture par station</h2>
+<table>
+  <thead><tr><th>Station</th><th>Lignes</th><th>Gaps &gt; 30 min</th></tr></thead>
+  <tbody>
+            <tr>
+                <td>Station 1</td>
+                <td>12</td>
+                <td class="ok">0</td>
+            </tr>
+            <tr>
+                <td>Station 3</td>
+                <td>5,000</td>
+                <td class="warn">3945</td>
+            </tr>
+            <tr>
+                <td>Station 5</td>
+                <td>5,000</td>
+                <td class="warn">3929</td>
+            </tr>
+            <tr>
+                <td>Station 19</td>
+                <td>5,000</td>
+                <td class="warn">4391</td>
+            </tr>
+            <tr>
+                <td>Station 23</td>
+                <td>5,000</td>
+                <td class="warn">4275</td>
+            </tr>
+            <tr>
+                <td>Station 31</td>
+                <td>5,000</td>
+                <td class="warn">4204</td>
+            </tr>
+            <tr>
+                <td>Station 34</td>
+                <td>5,000</td>
+                <td class="warn">4170</td>
+            </tr>
+            <tr>
+                <td>Station 40</td>
+                <td>5,000</td>
+                <td class="warn">4192</td>
+            </tr>
+            <tr>
+                <td>Station 41</td>
+                <td>4,998</td>
+                <td class="warn">4171</td>
+            </tr>
+            <tr>
+                <td>Station 45</td>
+                <td>4,999</td>
+                <td class="warn">3614</td>
+            </tr>
+            <tr>
+                <td>Station 48</td>
+                <td>5,000</td>
+                <td class="warn">3943</td>
+            </tr></tbody>
+</table>
+
+<h2>Profil statistique — Champs numériques</h2>
+<table>
+  <thead><tr>
+    <th>Champ</th><th>Nulls</th><th>Min</th><th>Max</th>
+    <th>Moyenne</th><th>Médiane</th><th>σ</th><th>Q25/Q75</th><th>Hors bornes</th>
+  </tr></thead>
+  <tbody>
+                <tr>
+                    <td><strong>temperature_en_degre_c</strong><br/><small>°C</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>-50.00</td>
+                    <td>41.80</td>
+                    <td>13.94</td>
+                    <td>13.90</td>
+                    <td>11.48</td>
+                    <td>9.10 / 20.40</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>humidite</strong><br/><small>%</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>99.00</td>
+                    <td>68.05</td>
+                    <td>72.00</td>
+                    <td>19.48</td>
+                    <td>57.00 / 83.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>pression</strong><br/><small>Pa</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>102300.00</td>
+                    <td>92128.43</td>
+                    <td>99900.00</td>
+                    <td>26348.33</td>
+                    <td>99200.00 / 100400.00</td>
+                    <td class="danger">4,079<br/><small>(7.54%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>pluie</strong><br/><small>mm</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>10.60</td>
+                    <td>0.01</td>
+                    <td>0.00</td>
+                    <td>0.09</td>
+                    <td>0.00 / 0.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>pluie_intensite_max</strong><br/><small>mm/h</small></td>
+                    <td class="ok">5,003<br/><small>(9.1%)</small></td>
+                    <td>0.00</td>
+                    <td>2.20</td>
+                    <td>0.01</td>
+                    <td>0.00</td>
+                    <td>0.04</td>
+                    <td>0.00 / 0.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>force_moyenne_du_vecteur_vent</strong><br/><small>m/s?</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>43.00</td>
+                    <td>2.87</td>
+                    <td>2.00</td>
+                    <td>3.73</td>
+                    <td>0.00 / 4.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>force_rafale_max</strong><br/><small>m/s?</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>69.00</td>
+                    <td>8.91</td>
+                    <td>6.00</td>
+                    <td>8.91</td>
+                    <td>0.00 / 14.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr>
+                <tr>
+                    <td><strong>direction_du_vecteur_de_vent_max_en_degres</strong><br/><small>°</small></td>
+                    <td class="ok">924<br/><small>(1.7%)</small></td>
+                    <td>0.00</td>
+                    <td>337.50</td>
+                    <td>141.78</td>
+                    <td>135.00</td>
+                    <td>120.69</td>
+                    <td>0.00 / 270.00</td>
+                    <td class="ok">0<br/><small>(0.00%)</small></td>
+                </tr></tbody>
+</table>
+
+<h2>Champs catégoriels</h2>
+
+            <h3>type_de_station</h3>
+            <table><thead><tr><th>Valeur</th><th>Occurrences</th></tr></thead>
+            <tbody><tr><td>ISS</td><td>54,088</td></tr><tr><td>sous station</td><td>914</td></tr><tr><td>None</td><td>10</td></tr></tbody></table>
+
+<h2>Rapport texte complet</h2>
+<pre>========================================================================
+  DATA PROFILE -- ods_weather_raw
+  Genere le : 2026-02-22 21:25 UTC
+========================================================================
+
+[Vue d'ensemble] 55,012 enregistrements
+
+-- Batches d'ingestion--------------------------------------------------
+  Total         : 3
+  Termines      : 2
+  Non termines  : 1
+  Dernier batch : 2026-02-22T21:04:50.004177+00:00
+
+-- Couverture temporelle------------------------------------------------
+  Timestamp NULL : 5,003  (9.1%)
+  Periode        : 2019-06-06T13:30:00+00:00  -->  2025-12-01T09:45:00+00:00
+  Doublons (station+ts) : 5,006
+
+  Lignes par station :
+    station   1 :      12 rows | gaps > 30 min : 0
+    station   3 :   5,000 rows | gaps > 30 min : 3945
+    station   5 :   5,000 rows | gaps > 30 min : 3929
+    station  19 :   5,000 rows | gaps > 30 min : 4391
+    station  23 :   5,000 rows | gaps > 30 min : 4275
+    station  31 :   5,000 rows | gaps > 30 min : 4204
+    station  34 :   5,000 rows | gaps > 30 min : 4170
+    station  40 :   5,000 rows | gaps > 30 min : 4192
+    station  41 :   4,998 rows | gaps > 30 min : 4171
+    station  45 :   4,999 rows | gaps > 30 min : 3614
+    station  48 :   5,000 rows | gaps > 30 min : 3943
+
+-- Profil statistique des champs numeriques-----------------------------
+
+  [temperature_en_degre_c]  (°C)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : -50.00  /  41.80
+    Moyenne   : 13.94   Mediane : 13.90   std : 11.48
+    Q25/Q75   : 9.10  /  20.40
+    Hors bornes [-100.0, 80.0] : [OK] 0  (0.00%)
+
+  [humidite]  (%)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  99.00
+    Moyenne   : 68.05   Mediane : 72.00   std : 19.48
+    Q25/Q75   : 57.00  /  83.00
+    Hors bornes [0.0, 110.0] : [OK] 0  (0.00%)
+
+  [pression]  (Pa)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  102300.00
+    Moyenne   : 92128.43   Mediane : 99900.00   std : 26348.33
+    Q25/Q75   : 99200.00  /  100400.00
+    Hors bornes [80000, 110000] : [!!] 4,079  (7.54%)
+
+  [pluie]  (mm)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  10.60
+    Moyenne   : 0.01   Mediane : 0.00   std : 0.09
+    Q25/Q75   : 0.00  /  0.00
+    Hors bornes [0.0, 500.0] : [OK] 0  (0.00%)
+
+  [pluie_intensite_max]  (mm/h)
+    NULL      : 5,003 / 55,012  (9.1%)
+    Min/Max   : 0.00  /  2.20
+    Moyenne   : 0.01   Mediane : 0.00   std : 0.04
+    Q25/Q75   : 0.00  /  0.00
+    Hors bornes [0.0, 1000.0] : [OK] 0  (0.00%)
+
+  [force_moyenne_du_vecteur_vent]  (m/s?)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  43.00
+    Moyenne   : 2.87   Mediane : 2.00   std : 3.73
+    Q25/Q75   : 0.00  /  4.00
+    Hors bornes [0.0, 80.0] : [OK] 0  (0.00%)
+
+  [force_rafale_max]  (m/s?)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  69.00
+    Moyenne   : 8.91   Mediane : 6.00   std : 8.91
+    Q25/Q75   : 0.00  /  14.00
+    Hors bornes [0.0, 80.0] : [OK] 0  (0.00%)
+
+  [direction_du_vecteur_de_vent_max_en_degres]  (°)
+    NULL      : 924 / 55,012  (1.7%)
+    Min/Max   : 0.00  /  337.50
+    Moyenne   : 141.78   Mediane : 135.00   std : 120.69
+    Q25/Q75   : 0.00  /  270.00
+    Hors bornes [0.0, 360.0] : [OK] 0  (0.00%)
+
+-- Champs categoriel----------------------------------------------------
+
+  [type_de_station]
+                     ISS : 54,088
+            sous station : 914
+                    None : 10
+
+========================================================================</pre>
+
+</body></html>
