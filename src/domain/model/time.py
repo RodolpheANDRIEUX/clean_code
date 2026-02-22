@@ -33,7 +33,10 @@ class UtcTimestamp:
         dt = datetime.fromisoformat(s)
         return cls(dt)
 
-    def is_in_future(self, *, now: "UtcTimestamp", tolerance: timedelta = timedelta(minutes=5)) -> bool:
+    def is_in_future(
+        self, *, now: "UtcTimestamp",
+        tolerance: timedelta = timedelta(minutes=5),
+    ) -> bool:
         return self.value > (now.value + tolerance)
 
     def __str__(self) -> str:

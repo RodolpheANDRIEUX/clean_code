@@ -10,8 +10,12 @@ from src.domain.rules.station_selection import StationSelectionPolicy
 from src.domain.model.station import StationType
 from src.domain.model.time import UtcTimestamp
 
-from src.adapters.api_toulouse.station_catalog import ToulouseApiConfig, ToulouseStationCatalogAdapter
-from src.adapters.api_toulouse.weather_records import ToulouseRecordsConfig, ToulouseWeatherRecordsAdapter
+from src.adapters.api_toulouse.station_catalog import (
+    ToulouseApiConfig, ToulouseStationCatalogAdapter,
+)
+from src.adapters.api_toulouse.weather_records import (
+    ToulouseRecordsConfig, ToulouseWeatherRecordsAdapter,
+)
 from src.adapters.persistence.sqlite_ods_repo import SqliteOdsRepository
 from src.adapters.weather_decorator import LoggingWeatherRecordsDecorator
 from src.infrastructure.db import SqliteConfig, connect_sqlite

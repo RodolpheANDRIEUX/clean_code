@@ -26,7 +26,7 @@ Complexity (n = nodes, m = edges):
 from __future__ import annotations
 
 from collections import deque
-from typing import Generic, Iterator, TypeVar
+from typing import Iterator, TypeVar
 
 from .base_structure import BaseStructure
 from .exceptions import NodeNotFoundError
@@ -200,8 +200,7 @@ class Graph(BaseStructure[T]):
 
         if self._directed:
             return self._has_cycle_directed(visited)
-        else:
-            return self._has_cycle_undirected(visited)
+        return self._has_cycle_undirected(visited)
 
     # ------------------------------------------------------------------ #
     # Private helpers                                                      #

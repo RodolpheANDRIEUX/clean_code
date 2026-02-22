@@ -31,9 +31,9 @@ class GeoPoint:
     longitude: float
 
     def __post_init__(self) -> None:
-        if not (-90.0 <= self.latitude <= 90.0):
+        if not -90.0 <= self.latitude <= 90.0:
             raise ValueError("Latitude invalide.")
-        if not (-180.0 <= self.longitude <= 180.0):
+        if not -180.0 <= self.longitude <= 180.0:
             raise ValueError("Longitude invalide.")
 
 

@@ -5,6 +5,8 @@ from typing import Any, Optional
 
 import requests
 
+from src.adapters.api_toulouse.http_client import get_json
+
 from src.domain.model.station import Station
 from src.domain.model.time import TimeWindow
 
@@ -49,7 +51,8 @@ class ToulouseWeatherRecordsAdapter:
             params: dict[str, Any] = {"limit": limit, "offset": offset, "where": where}
 
             try:
-                data = self._get_json(url, params=params)
+                data = get_json(self._session, url, params=params,
+                                timeout=self._cfg.timeout_s)
             except requests.HTTPError as e:
                 resp = getattr(e, "response", None)
                 if resp is not None and resp.status_code == 400:
@@ -82,10 +85,3 @@ class ToulouseWeatherRecordsAdapter:
         field = self._cfg.timestamp_field
         return f"{field} >= date'{start}' AND {field} < date'{end}'"
 
-    def _get_json(self, url: str, params: dict[str, Any]) -> dict[str, Any]:
-        resp = self._session.get(url, params=params, timeout=self._cfg.timeout_s)
-        resp.raise_for_status()
-        data = resp.json()
-        if not isinstance(data, dict):
-            raise ValueError("Réponse JSON inattendue (dict attendu).")
-        return data

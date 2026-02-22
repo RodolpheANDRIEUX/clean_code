@@ -36,7 +36,10 @@ class ObservationValidator:
         # (optionnel) si intensité max > 0 mais pluie == 0, ce n'est pas forcément faux,
         # mais peut être suspect selon votre métier.
         if obs.measures.rain is not None and obs.measures.rain.value == 0.0:
-            if obs.measures.rain_intensity_max is not None and obs.measures.rain_intensity_max.value > 0.0:
+            if (
+                obs.measures.rain_intensity_max is not None
+                and obs.measures.rain_intensity_max.value > 0.0
+            ):
                 status = status.add(QualityFlag.UNKNOWN)  # remplacez par un flag "SUSPICIOUS"
 
         # 3) Au moins une mesure (déjà garanti dans Observation.__post_init__)

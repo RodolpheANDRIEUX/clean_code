@@ -5,6 +5,8 @@ from typing import Any, Optional
 
 import requests
 
+from src.adapters.api_toulouse.http_client import get_json
+
 from src.domain.model.identifiers import DatasetId, StationId
 from src.domain.model.station import Station, StationType
 
@@ -79,7 +81,8 @@ class ToulouseStationCatalogAdapter:
             "limit": limit,
         }
 
-        data = self._get_json(url, params=params)
+        data = get_json(self._session, url, params=params,
+                        timeout=self._cfg.timeout_s)
         results = data.get("results", [])
         out: list[dict[str, Any]] = []
 
@@ -100,7 +103,8 @@ class ToulouseStationCatalogAdapter:
         url = f"{self._cfg.base_url}/api/explore/v2.1/catalog/datasets/{dataset_id}/records"
         params = {"limit": 1}
 
-        data = self._get_json(url, params=params)
+        data = get_json(self._session, url, params=params,
+                        timeout=self._cfg.timeout_s)
         results = data.get("results", [])
         if not results:
             return None
@@ -123,10 +127,3 @@ class ToulouseStationCatalogAdapter:
         except (TypeError, ValueError):
             return None
 
-    def _get_json(self, url: str, params: dict[str, Any]) -> dict[str, Any]:
-        resp = self._session.get(url, params=params, timeout=self._cfg.timeout_s)
-        resp.raise_for_status()
-        data = resp.json()
-        if not isinstance(data, dict):
-            raise ValueError("Réponse JSON inattendue (dict attendu).")
-        return data
